@@ -1,0 +1,10 @@
+public GameObject cube1;
+public GameObject cube2;
+
+public float distance;
+
+void Update(){
+
+  Distance = Vector3.Distance(cube1.transform.position,cube2.transform.position);
+
+}
