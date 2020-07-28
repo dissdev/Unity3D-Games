@@ -1,0 +1,40 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class Camera_player : MonoBehaviour
+{
+
+    public float speed;
+    public GameObject obj;
+    float rotX,rotY;
+    
+    void Update()
+    {
+        Lookatmouse();
+        
+    }
+
+    void Lookatmouse(){
+
+      rotX -= Input.GetAxis("Mouse Y")*Time.deltaTime*speed;
+      rotY += Input.GetAxis("Mouse X")*Time.deltaTime*speed;
+
+      if(rotX<-90){
+
+          rotX = -90;
+      }
+      else if(rotX>90){
+          
+          rotX = 90;
+      }
+
+      
+      transform.rotation = Quaternion.Euler(0,rotY,0);
+      obj.transform.localRotation = Quaternion.Euler(rotX,0,0);
+         
+    }  
+
+
+     
+}
