@@ -8,32 +8,40 @@ public class Camera_player : MonoBehaviour
     public float speed;
     public GameObject obj;
     float rotX,rotY;
+    float xrotation = 0f;
+
+    public float movespeed;
     
     void Update()
     {
         Lookatmouse();
+       
+       float hor = Input.GetAxis("Horizontal");
+        float ver = Input.GetAxis("Vertical");
+
+        Vector3 playermove = new Vector3(hor,0f,ver)*movespeed*Time.deltaTime;
+        transform.Translate(playermove,Space.Self);
         
     }
 
     void Lookatmouse(){
 
-      rotX -= Input.GetAxis("Mouse Y")*Time.deltaTime*speed;
-      rotY += Input.GetAxis("Mouse X")*Time.deltaTime*speed;
-
-      if(rotX<-90){
-
-          rotX = -90;
-      }
-      else if(rotX>90){
-          
-          rotX = 90;
-      }
+      rotX = Input.GetAxis("Mouse Y")*Time.deltaTime*speed;
+      rotY = Input.GetAxis("Mouse X")*Time.deltaTime*speed;
 
       
-      transform.rotation = Quaternion.Euler(0,rotY,0);
-      obj.transform.localRotation = Quaternion.Euler(rotX,0,0);
+
+      xrotation -= rotX;
+      xrotation = Mathf.Clamp(xrotation,-90f,90f);
+
+      
+      transform.Rotate(Vector3.up*rotY);
+      obj.transform.localRotation = Quaternion.Euler(xrotation,0f,0f);
+
          
     }  
+
+    
 
 
      
