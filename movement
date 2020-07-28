@@ -1,0 +1,9 @@
+void Update(){
+
+float hor = Input.GetAxis("Horizontal");
+        float ver = Input.GetAxis("Vertical");
+
+        Vector3 playermove = new Vector3(hor,0f,ver)*movespeed*Time.deltaTime;
+        transform.Translate(playermove,Space.Self);
+        
+ }
