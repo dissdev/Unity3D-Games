@@ -1,0 +1,10 @@
+//Create an empty object
+//add the following script
+
+
+
+void Start()
+    {
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
+    }
