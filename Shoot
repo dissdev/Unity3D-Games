@@ -1,0 +1,10 @@
+public GameObject bullet; // bulletobject
+public Transform Spawnpoint; //Empty Game object
+
+void Shoot(){
+
+        if(Input.GetMouseButtonDown(0)){
+        Instantiate(bullet,spawnpoint.position,spawnpoint.rotation);
+        }
+
+    }
