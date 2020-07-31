@@ -1,3 +1,5 @@
+public float movespeed;
+
 void Update(){
 
 float hor = Input.GetAxis("Horizontal");
