@@ -1,0 +1,29 @@
+public class shoot:MonoBehaviour{
+
+float firerate = 1f;
+float nextfire = 0.0f;
+
+public GameObject bullet;
+public Transform spawnpoint;
+
+
+void Update(){
+if(Input.getmouseButtonDown(0) && Time.time>nextfire){
+
+    nextfire = Time.time + firerate;
+    shoot();
+
+  }
+
+}
+
+void shoot(){
+  Instantiate(bullet,spawnpoint.position,spawnpoint.rotation);
+}
+
+
+
+
+
+
+}
